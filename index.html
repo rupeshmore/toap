@@ -35,24 +35,24 @@
           </div>
           <div class="row">
             <div class="input-field col s10">
-              <input v-model="urlToRecord" id="urlToRecord" type="url" :disabled="topeProxyStatus.length > 0" class="validate">
+              <input v-model="urlToRecord" id="urlToRecord" type="url" :disabled="toapProxyStatus.length > 0" class="validate">
               <label data-error="not a valid url" for="urlToRecord" class="cyan-text">URL To Record *</label>
             </div>
           </div>
           <div class="row">
             <div class="col s10">
-              <input type="checkbox" class="filled-in blue lighten-1" id="recordThinkTime" value="recordThinkTime" v-model="recordThinkTime" :disabled="topeProxyStatus.length > 0">
+              <input type="checkbox" class="filled-in blue lighten-1" id="recordThinkTime" value="recordThinkTime" v-model="recordThinkTime" :disabled="toapProxyStatus.length > 0">
               <label for="recordThinkTime">Record Think Time</label>
             </div>
             <div class="col s10">
             <p></p>
-                <input type="checkbox" class="filled-in" id="recordHeaders" value="recordHeaders" v-model="recordHeaders" :disabled="topeProxyStatus.length > 0">
+                <input type="checkbox" class="filled-in" id="recordHeaders" value="recordHeaders" v-model="recordHeaders" :disabled="toapProxyStatus.length > 0">
                 <label class="small" for="recordHeaders">Record Headers</label>
             </div>
 
           <div class="row">
             <div class="input-field col s10">
-               <input v-model="fileName" id="fileName" type="text" :disabled="topeProxyStatus.length > 0" class="validate">
+               <input v-model="fileName" id="fileName" type="text" :disabled="toapProxyStatus.length > 0" class="validate">
                <label for="fileName" class="cyan-text">Save To File *</label>
             </div>
 
@@ -62,7 +62,7 @@
                     <label>Open New Browser Window</label>
                      <label>
                        Off
-                       <input type="checkbox" v-model="newWindow" :disabled="topeProxyStatus.length > 0">
+                       <input type="checkbox" v-model="newWindow" :disabled="toapProxyStatus.length > 0">
                        <span class="lever"></span>
                        On
                      </label>
@@ -73,12 +73,12 @@
                  </div>
             </div>
 
-            <div v-if="topeProxyStatus.length > 0" class="input-field col s9">
+            <div v-if="toapProxyStatus.length > 0" class="input-field col s9">
               <input v-model="comments" id="comments" type="text" :disabled="!proxyURL[0]">
               <label for="comments">Add Comments</label>
               <small class=resize-note>add comments to flow &#10548;</small>
             </div>
-            <div v-if="comments && topeProxyStatus.length > 0" class="col s1" style="padding-top: 25;">
+            <div v-if="comments && toapProxyStatus.length > 0" class="col s1" style="padding-top: 25;">
               <a class="btn-floating btn-tiny waves-effect waves-light blue" v-on:click="addComments()" :disabled="!comments">
                 <i class="material-icons large">add</i>
               </a>
@@ -89,12 +89,12 @@
 
           <!-- Start Server -->
           <div class="row">
-            <button :disabled="!urlToRecord || !fileName" v-if='topeProxyStatus.length === 0' type="button" class="btn btn-primary blue lighten-1 col s10 waves-effect {{startTopeButton}}" v-on:click="startPorxyServer()"
+            <button :disabled="!urlToRecord || !fileName" v-if='toapProxyStatus.length === 0' type="button" class="btn btn-primary blue lighten-1 col s10 waves-effect {{startToapButton}}" v-on:click="startPorxyServer()"
               <a class="waves-effect waves-light btn">
                 <i class="material-icons right">cloud</i>
                 Start {{title}}</a>
             </button>
-            <button v-if='topeProxyStatus.length > 0' type="button" class="btn btn-primary red lighten-1 waves-effect col s10" v-on:click="stopProxyServer()" :disabled="!proxyURL[0]"
+            <button v-if='toapProxyStatus.length > 0' type="button" class="btn btn-primary red lighten-1 waves-effect col s10" v-on:click="stopProxyServer()" :disabled="!proxyURL[0]"
               <a class="waves-effect waves-light btn">
                 <i class="material-icons right">cloud</i>
                 Stop {{title}}</a>
@@ -170,7 +170,7 @@
           </ul>
 
           <!-- Modal Structure -->
-          <div id="topeRunning" class="modal">
+          <div id="toapRunning" class="modal">
             <div class="modal-content">
               <h4>Toap is Up & Running.</h4>
               <p class="light">Toap was started from another browser or the Toap cache was cleared.</p>

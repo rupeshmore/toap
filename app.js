@@ -13,7 +13,7 @@ const querystring = require('querystring');
 const opn = require('opn');
 const proxy = express();
 const toap = express();
-const topePort = process.env.PORT || 3001;
+const toapPort = process.env.PORT || 3001;
 //const cors = require('cors');
 const port = process.env.PORT || 3010;
 const readable = require('stream').Readable;
@@ -67,9 +67,9 @@ toap
   .use(express.static(__dirname))
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
-  .listen(topePort);
+  .listen(toapPort);
 
-console.log('Toap - GUI running on port ' + topePort + '!');
+console.log('Toap - GUI running on port ' + toapPort + '!');
 
 
 let browser = config.browser || 'chrome'; // default to chrome browser
@@ -80,7 +80,7 @@ if (browser ==='chrome') {
 		browser = 'google-chrome';
 	}
 }
-opn('http://localhost:'+ topePort, {app: [browser]});
+opn('http://localhost:'+ toapPort, {app: [browser]});
 
 
 /*
@@ -88,7 +88,7 @@ opn('http://localhost:'+ topePort, {app: [browser]});
 */
 let server;
 
-toap.post('/startTope', function (req, res) {
+toap.post('/starttoap', function (req, res) {
   thinkStartTime = undefined;
   if(typeof req.body.recordThinkTime === 'string') {
     req.body.recordThinkTime = JSON.parse(req.body.recordThinkTime);
@@ -123,7 +123,7 @@ toap.post('/startTope', function (req, res) {
 
 });
 
-toap.post('/stopTope', function (req, res) {
+toap.post('/stoptoap', function (req, res) {
   if (server) {
     server.close();
     console.log('Toap - artillery.io http(s) recorder stopped !');
@@ -140,7 +140,7 @@ toap.post('/addComments', function (req, res) {
   }
 });
 
-toap.get('/getTopeProxyStatus', function (req, res) {
+toap.get('/gettoapProxyStatus', function (req, res) {
   if (server) {
     res.status(200).send({status: 'UP'});
   } else {

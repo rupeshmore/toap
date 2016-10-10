@@ -10,11 +10,11 @@ let vue = new Vue({
       fileName: null,
       downloadFlowFile: [],
       comments: '',
-      topeProxyStatus: [],
+      toapProxyStatus: [],
     },
     computed: {
       // a computed getter
-      startTopeButton: function () {
+      startToapButton: function () {
         if (this.urlToRecord && this.fileName) {
           return 'enabled';
         } else {
@@ -23,40 +23,40 @@ let vue = new Vue({
       }
     },
     watch: {
-    topeProxyStatus: function () {
-      if (this.topeProxyStatus.length > 0 && !this.proxyURL.length) {
-        $('#topeRunning').openModal();
+    toapProxyStatus: function () {
+      if (this.toapProxyStatus.length > 0 && !this.proxyURL.length) {
+        $('#toapRunning').openModal();
       }
     }
   },
   created: function() {
-    let topeProxyStatus = this.topeProxyStatus;
+    let toapProxyStatus = this.toapProxyStatus;
     let removeFromLocalStorage = this.removeFromLocalStorage;
-    $.get(window.location.origin+'/getTopeProxyStatus', function(data){
+    $.get(window.location.origin+'/getToapProxyStatus', function(data){
       if (data.error) {
-          topeProxyStatus.pop();
+          toapProxyStatus.pop();
           removeFromLocalStorage();
       } else {
-          topeProxyStatus.push(1);
+          toapProxyStatus.push(1);
       }
     }).error(function() {
       console.error('Failed');
     });
 
-    let gettope = JSON.parse(localStorage.getItem('toap'));
-    if (gettope) {
-      if(gettope.proxyURL) {
-          this.proxyURL = gettope.proxyURL;
+    let gettoap = JSON.parse(localStorage.getItem('toap'));
+    if (gettoap) {
+      if(gettoap.proxyURL) {
+          this.proxyURL = gettoap.proxyURL;
       } else {
           //this.proxyURL = [];
           this.proxyURL.length = 0;
       }
-      this.recordThinkTime = gettope.recordThinkTime;
-      this.recordHeaders = gettope.recordHeaders;
-      if (gettope.fileName) this.fileName = gettope.fileName;
-      if (gettope.urlToRecord) this.urlToRecord = gettope.urlToRecord;
-      if (gettope.downloadFlowFile) this.downloadFlowFile = gettope.downloadFlowFile;
-      if (gettope.newWindow) this.newWindow = gettope.newWindow;
+      this.recordThinkTime = gettoap.recordThinkTime;
+      this.recordHeaders = gettoap.recordHeaders;
+      if (gettoap.fileName) this.fileName = gettoap.fileName;
+      if (gettoap.urlToRecord) this.urlToRecord = gettoap.urlToRecord;
+      if (gettoap.downloadFlowFile) this.downloadFlowFile = gettoap.downloadFlowFile;
+      if (gettoap.newWindow) this.newWindow = gettoap.newWindow;
     }
   },
   methods: {
@@ -82,7 +82,7 @@ let vue = new Vue({
         recordHeaders: this.recordHeaders,
         fileName: this.fileName,
       };
-      let topeProxyStatus = this.topeProxyStatus;
+      let toapProxyStatus = this.toapProxyStatus;
       let proxyURL = this.proxyURL;
       let localStorageSet = this.saveToLocalStorage;
       let downloadFlowFile = this.downloadFlowFile;
@@ -90,7 +90,7 @@ let vue = new Vue({
       let fileName = this.fileName;
       let title = this.title;
       $.post(window.location.origin+'/start'+this.title, postData, function(response) {
-        topeProxyStatus.push(1);
+        toapProxyStatus.push(1);
         Materialize.toast(title+' recorder started', 2000) // 4000 is the duration of the toast
         if(response.url) {
             proxyURL.push(response.url)
@@ -102,19 +102,19 @@ let vue = new Vue({
         if (openNewWindow) window.open(response.url);
         return true;
       }).error(function() {
-        console.log('Post Start'+this.title+' Failed');
+        console.log('Post Start '+title+' Failed');
         return false;
       });
     },
     stopProxyServer: function(index) {
-      let topeProxyStatus = this.topeProxyStatus;
+      let toapProxyStatus = this.toapProxyStatus;
       let proxyURL = this.proxyURL;
       let localStorageRemove = this.removeFromLocalStorage;
       let urlToRecord = this.urlToRecord;
       let title = this.title;
       let clearLocalStorage = window.localStorage;
       $.post(window.location.origin+'/stop'+this.title, null,function(response) {
-        topeProxyStatus.pop();
+        toapProxyStatus.pop();
         Materialize.toast(title+' recorder stopped', 2000) // 3000 is the duration of the toast
         proxyURL.pop();
         localStorageRemove();
@@ -138,11 +138,11 @@ let vue = new Vue({
       });
     },
     downloadFlow: function () {
-        if (this.topeProxyStatus.length < 1 || this.proxyURL < 1) this.downloadFlowFile.pop();
+        if (this.toapProxyStatus.length < 1 || this.proxyURL < 1) this.downloadFlowFile.pop();
     },
     delete: function(fn, index) {
       this[fn].splice(index, 1);
-      localStorage.setItem('topeDownloadFlowFile', JSON.stringify(this.downloadFlowFile));
+      localStorage.setItem('toapDownloadFlowFile', JSON.stringify(this.downloadFlowFile));
     },
   }
 });

@@ -1,15 +1,15 @@
 # Toap (तोप)
 
-Toap (तोप) literary means artillery in Hindi.
+Toap (तोप) means artillery in Hindi.
 
-This node app to record http(s) scripts for [Artillery.io](https://artillery.io/) in JSON format.
+This app records http(s) traffic for a website and converts them to [Artillery.io](https://artillery.io/) load test scripts.
 
-Artillery.io is a new load testing tool based on node.js
+[Artillery.io](https://artillery.io/) is a new load testing tool based on node.js
 
-## Get Started
+## Getting Started
 1. Install Node.js
 
-2. Clone the repo
+2. Clone or Download the repo
 ```sh
   git clone https://github.com/rupeshmore/toap
 ```
@@ -19,11 +19,10 @@ Artillery.io is a new load testing tool based on node.js
   npm install --save-dev
 ```
 
-4. Run the tool
+4. Run the app
 ```sh
   npm start
 ```
-
 
 ## Features
 1. Record the browser interactions without configuring browser network proxy settings.
