@@ -240,7 +240,6 @@ function createFlow(method, requestUrl, body, headers){
   }
 
   if ('content-type' in headers && headers['content-type'].includes('application/x-www-form-urlencoded')) {
-    console.log(body);
     flowJson[httpMethod].body = querystring.stringify(body);
   } else if ('content-type' in headers && headers['content-type'].includes('application/json')) {
     flowJson[httpMethod].json = body;
