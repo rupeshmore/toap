@@ -1,0 +1,30 @@
+{
+  "name": "toap",
+  "version": "1.0.1",
+  "description": "HTTP(S) script recorder for Artillery.io load testing tool.",
+  "author": "Rupesh More",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rupeshmore/toap"
+  },
+  "engines": {
+    "node": ">4.3.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "artillery.io",
+    "toap"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "latest",
+    "request": "latest",
+    "body-parser": "latest",
+    "multer": "latest",
+    "find-remove": "latest",
+    "opn": "latest"
+  },
+  "main": "app.js"
+}
