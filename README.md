@@ -1,0 +1,49 @@
+# Toap (तोप)
+
+Toap (तोप) literary means artillery in Hindi.
+
+This node app to record http(s) scripts for [Artillery.io](https://artillery.io/) in JSON format.
+
+Artillery.io is a new load testing tool based on node.js
+
+## Get Started
+1. Install Node.js
+
+2. Clone the repo
+```sh
+  git clone https://github.com/rupeshmore/toap
+```
+
+3. Install all dependencies
+```sh
+  npm install --save-dev
+```
+
+4. Run the tool
+```sh
+  npm start
+```
+
+
+## Features
+1. Record the browser interactions without configuring browser network proxy settings.
+2. Calculate Think Time between requests.
+3. Configure to record think time and/or headers.
+4. Add comments to the script.
+5. Option to open new browser window instead of within an iframe.
+6. Download the JSON flow file at any point in time.
+
+## More Info
+1. Sites with multiple iframes will not open within the iframe, it is recommended to open in the new browser.
+2. The default browser client is chrome. If you need to change the browser option edit `config.json` and change the browser to firefox/IE.
+
+## Known Issues
+1. If filename exists then it will append to the existing file.
+2. Websites with 'content-security-policy' will not display correctly within the iframe
+
+## TODO
+1. Better HTTPS support.
+2. Resolve site requests which have 'content-security-policy'.
+
+## License
+MIT

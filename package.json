@@ -1,6 +1,6 @@
 {
   "name": "toap",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "HTTP(S) script recorder for Artillery.io load testing tool.",
   "author": "Rupesh More",
   "repository": {
