@@ -34,7 +34,11 @@ This app records http(s) traffic for a website and converts them to [Artillery.i
 
 ## More Info
 1. Sites with multiple iframes will not open within the iframe, it is recommended to open in the new browser.
-2. The default browser client is chrome. If you need to change the browser option edit `config.json` and change the browser to firefox/IE.
+
+## Config
+1. The default browser client is chrome. If you need to change the browser option edit `config.json` and change the browser to firefox/IE.
+2. Toap gui runs on port 3001. Change the `toapGuiPort` in `config.json` and set to available value.
+3. Toap proxy runs on port 3010. Change the `toapProxyPort` in `config.json` and set to available value.
 
 ## Known Issues
 1. If filename exists then it will append to the existing file.

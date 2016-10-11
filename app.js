@@ -13,9 +13,9 @@ const querystring = require('querystring');
 const opn = require('opn');
 const proxy = express();
 const toap = express();
-const toapPort = process.env.PORT || 3001;
+const toapPort = process.env.PORT || config.toapGuiPort || 3001;
 //const cors = require('cors');
-const port = process.env.PORT || 3010;
+const port = process.env.PORT || config.toapProxyPort || 3010;
 const readable = require('stream').Readable;
 
 // following variables and modules handle multipart file upload for request module.

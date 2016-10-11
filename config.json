@@ -1,3 +1,5 @@
 {
-	"browser": "chrome"
+	"browser": "chrome",
+	"toapGuiPort": null,
+	"toapProxyPort":null
 }
