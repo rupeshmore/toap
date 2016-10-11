@@ -13,17 +13,17 @@ This app records http(s) traffic for a website and converts them to [Artillery.i
 1. Install Node.js
 
 2. Clone or Download the repo
-```sh
+```
   git clone https://github.com/rupeshmore/toap
 ```
 
 3. Inside the toap folder using terminal, install all dependencies
-```sh
+```
   npm install
 ```
 
 4. Run the app
-```sh
+```
   npm start
 ```
 
