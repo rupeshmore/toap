@@ -10,19 +10,19 @@ This app records http(s) traffic for a website and converts them to [Artillery.i
 [Toap (तोप) Video Demo](https://youtu.be/wpwDhpZSP8k) recording web requests, think time and comments.
 
 ## Getting Started
-1. Install Node.js
+- Install Node.js
 
-2. Clone or Download the repo
+- Clone or Download the repo
 ```
   git clone https://github.com/rupeshmore/toap
 ```
 
-3. Inside the toap folder using terminal, install all dependencies
+- Inside the toap folder using terminal, install all dependencies
 ```
   npm install
 ```
 
-4. Run the app
+- Run the app
 ```
   npm start
 ```
