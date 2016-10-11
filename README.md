@@ -7,7 +7,7 @@ This app records http(s) traffic for a website and converts them to [Artillery.i
 [Artillery.io](https://artillery.io/) is a new load testing tool based on node.js
 
 ## App Demo
-[Toap (तोप) Video Demo](https://youtu.be/wpwDhpZSP8k) recording web requests and think time and comments.
+[Toap (तोप) Video Demo](https://youtu.be/wpwDhpZSP8k) recording web requests, think time and comments.
 
 ## Getting Started
 1. Install Node.js
