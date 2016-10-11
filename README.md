@@ -16,7 +16,7 @@ This app records http(s) traffic for a website and converts them to [Artillery.i
 
 3. Install all dependencies
 ```sh
-  npm install --save-dev
+  npm install
 ```
 
 4. Run the app

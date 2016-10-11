@@ -88,7 +88,7 @@ opn('http://localhost:'+ toapPort, {app: [browser]});
 */
 let server;
 
-toap.post('/starttoap', function (req, res) {
+toap.post('/startToap', function (req, res) {
   thinkStartTime = undefined;
   if(typeof req.body.recordThinkTime === 'string') {
     req.body.recordThinkTime = JSON.parse(req.body.recordThinkTime);
@@ -123,7 +123,7 @@ toap.post('/starttoap', function (req, res) {
 
 });
 
-toap.post('/stoptoap', function (req, res) {
+toap.post('/stopToap', function (req, res) {
   if (server) {
     server.close();
     console.log('Toap - artillery.io http(s) recorder stopped !');
@@ -140,7 +140,7 @@ toap.post('/addComments', function (req, res) {
   }
 });
 
-toap.get('/gettoapProxyStatus', function (req, res) {
+toap.get('/getToapProxyStatus', function (req, res) {
   if (server) {
     res.status(200).send({status: 'UP'});
   } else {

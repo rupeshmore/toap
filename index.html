@@ -78,10 +78,10 @@
               <label for="comments">Add Comments</label>
               <small class=resize-note>add comments to flow &#10548;</small>
             </div>
-            <div v-if="comments && toapProxyStatus.length > 0" class="col s1" style="padding-top: 25;">
-              <a class="btn-floating btn-tiny waves-effect waves-light blue" v-on:click="addComments()" :disabled="!comments">
+            <div v-if="toapProxyStatus.length > 0" class="col s1" style="padding-top: 25;"> <!-- v-if="comments && toapProxyStatus.length > 0"  -->
+              <button class="btn-floating btn-tiny waves-effect waves-light blue" v-on:click="addComments()" :disabled="!comments">
                 <i class="material-icons large">add</i>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -138,24 +138,25 @@
               <div class="row center">
                 <h6 class="header col s12 bold"><a href="https://artillery.io/">Artillery.io</a> http(s) recorder based on node.js</h6>
               </div>
-                <h5 class="header center col s12 light orange-text">This iframe will be replaced by proxy url defined at left.</h5>
+                <h5 class="header center col s12 light green-text">This iframe will be replaced once recording starts.</h5>
                 <br><br>
               <div class="row">
                 <div class="col s6">
-                    <ul>
+                    <ul class="light">
                       <li class="collection-header"><h5>Features</h5></li>
-                      <li><span class="green-text">✓</span> Calculate Think Time between requests.<li>
-                      <li><span class="green-text">✓</span> Configure to record think time and headers.<li>
-                      <li><span class="green-text">✓</span> Add comments to the script.<li>
-                      <li><span class="green-text">✓</span> Download the JSON flow file at any point in time.<li>
+                      <li><span class="green-text">✓</span> Calculate Think Time between requests.<li><p></p>
+                      <li><span class="green-text">✓</span> Configure to record think time and headers.<li><p></p>
+                      <li><span class="green-text">✓</span> Add comments to the script.<li><p></p>
+                      <li><span class="green-text">✓</span> Download the JSON flow file at any point in time.<li><p></p>
                     </ul>
                 </div>
                 <div class="col s6">
-                    <ul>
+                    <ul class="light">
                       <li class="collection-header"><h5>Getting Started</h5></li>
+                      <li><span>•</span> <mark>Clear Browser cache before each recording.</mark></li>
                       <li><span>•</span> Enter the Url To Record. (Should start with 'http://' )</li>
-                      <li><span>•</span> Enter the File Name to save to.</li>
                       <li><span>•</span> Configure to record think-time or headers.</li>
+                      <li><span>•</span> Enter the Script File Name to record the requests.</li>
                       <li><span>•</span> Click Start {{title}} Button to start recording.</li>
                       <li><span>•</span> Once recording has started add comments to the script.</li>
                       <li><span>•</span> Download script using the download button.</li>
@@ -163,9 +164,13 @@
                 </div>
               </div>
               <br><br>
+              <div class="row center">
+                <p class="header col s12 bold">Click here for <a class="center" href="https://youtu.be/wpwDhpZSP8k" target="_blank">Toap (तोप) Demo Video</a></p>
+              </div>
+
               <p class="light center">Note: websites with 'X-Frame-Options' set to 'SAMEORIGIN' will not display in this page due to iframe restrictions.<br>Set the 'Open New Browser Window' to record requests.</p>
               <br>
-              <p class="center">By Test Developer, for developers and testers</p>
+              <!--<p class="center">By Test Developer, for developers and testers</p>-->
             </div>
           </ul>
 

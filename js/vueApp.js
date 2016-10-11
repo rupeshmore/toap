@@ -32,7 +32,7 @@ let vue = new Vue({
   created: function() {
     let toapProxyStatus = this.toapProxyStatus;
     let removeFromLocalStorage = this.removeFromLocalStorage;
-    $.get(window.location.origin+'/getToapProxyStatus', function(data){
+    $.get(window.location.origin+'/get'+this.title+'ProxyStatus', function(data){
       if (data.error) {
           toapProxyStatus.pop();
           removeFromLocalStorage();
@@ -43,20 +43,20 @@ let vue = new Vue({
       console.error('Failed');
     });
 
-    let gettoap = JSON.parse(localStorage.getItem('toap'));
-    if (gettoap) {
-      if(gettoap.proxyURL) {
-          this.proxyURL = gettoap.proxyURL;
+    let getToap = JSON.parse(localStorage.getItem('toap'));
+    if (getToap) {
+      if(getToap.proxyURL) {
+          this.proxyURL = getToap.proxyURL;
       } else {
           //this.proxyURL = [];
           this.proxyURL.length = 0;
       }
-      this.recordThinkTime = gettoap.recordThinkTime;
-      this.recordHeaders = gettoap.recordHeaders;
-      if (gettoap.fileName) this.fileName = gettoap.fileName;
-      if (gettoap.urlToRecord) this.urlToRecord = gettoap.urlToRecord;
-      if (gettoap.downloadFlowFile) this.downloadFlowFile = gettoap.downloadFlowFile;
-      if (gettoap.newWindow) this.newWindow = gettoap.newWindow;
+      this.recordThinkTime = getToap.recordThinkTime;
+      this.recordHeaders = getToap.recordHeaders;
+      if (getToap.fileName) this.fileName = getToap.fileName;
+      if (getToap.urlToRecord) this.urlToRecord = getToap.urlToRecord;
+      if (getToap.downloadFlowFile) this.downloadFlowFile = getToap.downloadFlowFile;
+      if (getToap.newWindow) this.newWindow = getToap.newWindow;
     }
   },
   methods: {
