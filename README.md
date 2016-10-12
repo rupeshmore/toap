@@ -49,6 +49,7 @@ Comments are only for readability and debugging purpose. Comments should be remo
 ## More Info
 1. Sites with multiple iframes will not open within the iframe, it is recommended switch `ON` to open in the new browser.
 2. If filename exists then it will append to the existing file.
+3. Body for `multipart/form-data` requests are skipped, as artillery has no support.
 
 ## Known Issues
 1. Websites with 'content-security-policy' will not display correctly within the iframe
