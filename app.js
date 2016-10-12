@@ -14,8 +14,7 @@ const opn = require('opn');
 const proxy = express();
 const toap = express();
 const toapPort = process.env.PORT || config.toapGuiPort || 3001;
-//const cors = require('cors');
-//const port = process.env.PORT || config.toapProxyPort || 3010;
+const port = process.env.PORT || config.toapProxyPort || 3010;
 const readable = require('stream').Readable;
 
 // following variables and modules handle multipart file upload for request module.
@@ -114,7 +113,6 @@ toap.post('/startToap', function (req, res) {
   }
 
   if (!server) {
-    const port = process.env.PORT || config.toapProxyPort || 3010;
     server = proxy.listen(port);
     console.log('Toap - artillery.io http(s) recorder running on port ' + port + '!');
     res.status(200).send({url: 'http://localhost:' + port + urlPath});
@@ -154,7 +152,7 @@ toap.get('/getToapProxyStatus', function (req, res) {
   Configure proxy server to use body parser for request body
 */
 proxy.use(bodyParser.urlencoded({ extended: true }));
-proxy.disable('Content-Security-Policy');
+proxy.disable('content-security-policy');
 
 /*
   proxy all request
@@ -201,17 +199,12 @@ proxy.use('*', upload.any(), function(req, res) {
           attachments: filesArray
         };
 
-        //request[method]({url: origin + req.originalUrl, formData: formData}).pipe(res);
         reqOptions.formData = formData;
 
       } else if ('content-type' in req.headers &&  req.headers['content-type'].includes('application/x-www-form-urlencoded')) {
-
-        //request[method]({url: origin + req.originalUrl, form: req.body}).pipe(res);
         reqOptions.form = req.body;
-
       } else if ('content-type' in req.headers && req.headers['content-type'].includes('application/json')) {
         reqOptions.json = req.body;
-        //request[method]({url: origin + req.originalUrl, json: req.body}).pipe(res);
       }
       request[method](reqOptions).pipe(res);
     }
@@ -246,8 +239,7 @@ function createFlow(method, requestUrl, body, headers){
     flowJson[httpMethod].json = body;
   } else if ('content-type' in headers && headers['content-type'].includes('multipart/form-data')) {
     writeToFile('\n/*Comment: this is an upload ' + httpMethod + ' request. No body is recorded.*/\n');
-    //flowJson[httpMethod].body = {};
-    flowJson[httpMethod].body = body;
+    flowJson[httpMethod].body = {};
   }
 
 	writeToFile(flowJson);
